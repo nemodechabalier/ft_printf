@@ -6,13 +6,13 @@
 /*   By: nde-chab <nde-chab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:40:25 by nde-chab          #+#    #+#             */
-/*   Updated: 2024/05/27 12:05:36 by nde-chab         ###   ########.fr       */
+/*   Updated: 2024/05/27 16:40:51 by nde-chab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n)
+void	ft_putnbr(int n, int *size)
 {
 	long	nb;
 
@@ -20,13 +20,13 @@ void	ft_putnbr(int n)
 	if (nb < 0)
 	{
 		nb = -nb;
-		ft_putchar('-');
+		ft_putchar('-', size);
 	}
 	if (nb > 9)
 	{
-		ft_putnbr(nb / 10);
-		ft_putchar(nb % 10 + '0');
+		ft_putnbr(nb / 10, size);
+		ft_putchar(nb % 10 + '0', size);
 	}
 	else
-		ft_putchar(nb + '0');
+		ft_putchar(nb + '0', size);
 }
