@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_put_locate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-chab <nde-chab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 14:03:32 by nde-chab          #+#    #+#             */
-/*   Updated: 2024/05/27 19:22:16 by nde-chab         ###   ########.fr       */
+/*   Created: 2024/05/27 19:05:50 by nde-chab          #+#    #+#             */
+/*   Updated: 2024/05/27 19:22:27 by nde-chab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-void	ft_putnbr(int n, int *size);
-void	ft_putstr(char *s, int *size);
-void	ft_putchar(char c, int *size);
-void	ft_print_base(char c, int n, int *size);
-void	ft_put_locate(unsigned long nb, int *size);
+void	ft_put_locate(unsigned long nb,int *size)
+{
+	char *base;
 
-int		ft_printf(const char *str, ...) __attribute__((format(printf, 1, 2)));
-#endif
+	base = "0123456789abcdef";
+	if (nb > 15)
+	{
+		ft_put_locate( nb / 16, size);
+		ft_putchar(base[nb % 16], size);
+	}
+	else
+		ft_putchar(base[nb], size);
+}
