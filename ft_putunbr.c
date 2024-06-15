@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_base.c                                    :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nde-chab <nde-chab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 11:28:47 by nde-chab          #+#    #+#             */
-/*   Updated: 2024/05/28 19:20:24 by nde-chab         ###   ########.fr       */
+/*   Created: 2024/05/28 10:35:41 by nde-chab          #+#    #+#             */
+/*   Updated: 2024/05/28 11:36:14 by nde-chab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_base(char c, unsigned long nb, int *size)
+void	ft_putunbr(unsigned int n, int *size)
 {
-	char	*base;
+	long	nb;
 
-	if (c == 'X')
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (nb > 15)
+	nb = n;
+	if (nb > 9)
 	{
-		ft_print_base(c, nb / 16, size);
-		ft_putchar(base[nb % 16], size);
+		ft_putnbr(nb / 10, size);
+		ft_putchar(nb % 10 + '0', size);
 	}
 	else
-		ft_putchar(base[nb], size);
+		ft_putchar(nb + '0', size);
 }

@@ -6,7 +6,7 @@
 #    By: nde-chab <nde-chab@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/27 16:26:00 by nde-chab          #+#    #+#              #
-#    Updated: 2024/05/27 16:32:33 by nde-chab         ###   ########.fr        #
+#    Updated: 2024/06/04 13:51:24 by nde-chab         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,15 +16,19 @@ CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -I .
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 FUNC += ft_printf.c 
 FUNC += ft_putchar.c 
 FUNC += ft_putstr.c 
 FUNC += ft_putnbr.c 
 FUNC += ft_print_base.c
+FUNC += ft_putunbr.c
+
+
 
 OBJS = $(FUNC:.c=.o)
+OBJSALL = $(FUNCALL:.c=.o)
 
 %.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ 
@@ -42,4 +46,5 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : all bonus fclean re
+
+.PHONY : all bonus fclean re 

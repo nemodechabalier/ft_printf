@@ -6,13 +6,13 @@
 /*   By: nde-chab <nde-chab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 17:40:25 by nde-chab          #+#    #+#             */
-/*   Updated: 2024/05/27 16:40:51 by nde-chab         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:16:18 by nde-chab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int n, int *size)
+void	ft_putnbr(long n, int *size)
 {
 	long	nb;
 
